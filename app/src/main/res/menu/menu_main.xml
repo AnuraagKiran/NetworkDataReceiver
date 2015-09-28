@@ -1,0 +1,16 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" tools:context="com.itass.ottclient.MainActivity">
+
+    <item android:id="@+id/actionLiveTv" android:title="@string/liveTv"
+        android:orderInCategory="100" app:showAsAction="" />
+    <item android:id="@+id/actionGuide" android:title="@string/guide"
+        android:orderInCategory="100" app:showAsAction="ifRoom" />
+    <item android:id="@+id/actionOnDemand" android:title="@string/onDemand"
+        android:orderInCategory="100" app:showAsAction="ifRoom" />
+
+    <item android:id="@+id/actionSettings" android:title="@string/settings"
+        android:orderInCategory="100" app:showAsAction="collapseActionView" />
+    <item android:id="@+id/actionLogOut" android:title="@string/logOut"
+        android:orderInCategory="100" app:showAsAction="collapseActionView" />
+</menu>

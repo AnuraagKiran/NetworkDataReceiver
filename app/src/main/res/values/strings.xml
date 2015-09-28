@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">OTTClient</string>
+    <string name="hello_world">Hello world!</string>
+
+    <string name="password">Password   :</string>
+    <string name="username">User Name :</string>
+
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="liveTv">Live TV</string>
+    <string name="onDemand">On Demand</string>
+    <string name="guide">Guide</string>
+    <string name="settings">Settings</string>
+    <string name="logOut">Log Out</string>
+
+</resources>
