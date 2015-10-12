@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.itaas.networkdatareceiver.MainActivity"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/action_refresh"
+        android:title="Reload Data"
+        app:showAsAction="ifRoom"/>
+
+</menu>
+<!-- From: file:/C:/Users/user/AndroidStudioProjects/RetrieveNetworkData/app/src/main/res/menu/menu_main.xml -->

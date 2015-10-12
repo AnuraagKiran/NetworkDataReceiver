@@ -32,6 +32,7 @@ import javax.xml.parsers.ParserConfigurationException;
 
 public class ListFragment extends Fragment {
     private static ArrayAdapter<String> listAdapter;
+    List<String> displayedList;
     public ListFragment() {
     }
 
@@ -59,7 +60,7 @@ public class ListFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         String[] data = {"nil","nil","nil","nil","nil","nil","nil"};
-        List<String> displayedList = new ArrayList<>(Arrays.asList(data));
+        displayedList = new ArrayList<>(Arrays.asList(data));
 
         listAdapter = new ArrayAdapter<String>(getActivity(),
                 R.layout.list_item_device,
@@ -74,10 +75,11 @@ public class ListFragment extends Fragment {
     }
 
 
-    public class FetchDeviceDataTask extends AsyncTask<Void, Void, ArrayList<String>> {
+    public class FetchDeviceDataTask extends AsyncTask<Void, Void, String> {
         private final String LOG_TAG = FetchDeviceDataTask.class.getSimpleName();
-        private ArrayList<String> parseXml(InputStream buffer){
-           ArrayList<String> data = new ArrayList<>();
+
+        //method to parse xml of inputStream
+        private void parseXml(InputStream buffer){
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder;
             try {
@@ -85,8 +87,9 @@ public class ListFragment extends Fragment {
                 Document doc = dBuilder.parse(buffer);
                 doc.getDocumentElement().normalize();
                 NodeList nList = doc.getElementsByTagName("item");
+                displayedList.clear();
                 for (int i = 0; i < nList.getLength(); i++) {
-                    data.add(nList.item(i).getTextContent());
+                    displayedList.add(nList.item(i).getTextContent());
                     Log.w(LOG_TAG, "got data in loop: "+i);
                 }
             }
@@ -94,14 +97,11 @@ public class ListFragment extends Fragment {
                 Log.w(LOG_TAG, e.getMessage());
             }
 
-
-            return data;
         }
 
 
         @Override
-        protected ArrayList<String> doInBackground(Void... params) {
-            ArrayList<String> deviceData = new ArrayList<>();
+        protected String doInBackground(Void... params) {
 
 
             // These two need to be declared outside the try/catch
@@ -124,7 +124,7 @@ public class ListFragment extends Fragment {
                 InputStream inputStream = urlConnection.getInputStream();
 
 
-                deviceData = parseXml(inputStream);
+                parseXml(inputStream);
 
             } catch (IOException e) {
                 Log.e(LOG_TAG, "Error: "+ e.getMessage());
@@ -145,21 +145,16 @@ public class ListFragment extends Fragment {
             }
 
 
-            return deviceData;
+            return "";
         }
 
-        //After executing the background method, the
-        //return value is "grabbed" using this method's argument.
+        //get some dummy result so that this method is executed
+        //without conflicts.
         @Override
-        protected void onPostExecute(ArrayList<String> result){
-            if(result !=null){
-                listAdapter.clear();//clearing the previous values
-                for(int i=0;i<result.size();i++){
-                    listAdapter.add(result.get(i));//Adding each new value to overwrite previous values
-                }
-                listAdapter.notifyDataSetChanged();//Notifying the adapter to refresh
+        protected void onPostExecute(String result){
 
-            }
+            listAdapter.notifyDataSetChanged();//Notifying the adapter to refresh
+
         }
     }
 }
