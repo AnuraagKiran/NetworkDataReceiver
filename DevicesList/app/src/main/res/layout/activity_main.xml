@@ -1,0 +1,232 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+
+    <!-- 1st row -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#64ffe853"
+        android:id="@+id/switch_bar"
+        android:layout_marginTop="10dp">
+
+        <TextView android:text="Internet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000270"
+            android:layout_alignParentLeft="true"
+            android:padding="10dp"
+            android:textSize="15sp"/>
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:padding="10dp"
+            android:textSize="15sp"
+            android:switchTextAppearance="@style/SwitchTextAppearance"/>
+
+    </RelativeLayout>
+
+
+    <!-- 2nd row -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/switch_bar"
+        android:layout_marginTop="10dp"
+        android:id="@+id/time_start_bar"
+        android:background="#64ffe853">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/clock_icon_holder_2nd_row"
+            android:background="@color/transparent">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/clock"
+                android:background="@color/transparent"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/clock_icon_holder_2nd_row"
+            android:padding="10dp"
+            android:textSize="15sp"
+            android:switchTextAppearance="@style/SwitchTextAppearance"
+            android:text="9 : 00 am"/>
+
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/edit_button_holder_2nd_row"
+            android:background="@color/transparent"
+            android:layout_alignParentRight="true">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/editicon"
+                android:background="@color/transparent"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_toLeftOf="@id/edit_button_holder_2nd_row">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="8 hours"
+                android:padding="5dp"
+                android:id="@+id/time_text_2nd_row" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="S M T W T F S"
+                android:layout_below="@id/time_text_2nd_row"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <!-- 3rd row -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/time_start_bar"
+        android:layout_marginTop="10dp"
+        android:id="@+id/url_bar"
+        android:background="#64ffe853">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/shield_button_holder"
+            android:background="@color/transparent"
+            android:layout_alignParentLeft="true">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/shield"
+                android:background="@color/transparent"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/shield_button_holder"
+            android:padding="10dp"
+            android:textSize="15sp"
+            android:switchTextAppearance="@style/SwitchTextAppearance"
+            android:text="www.youtube.com"/>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/edit_button_holder"
+            android:background="@color/transparent"
+            android:layout_alignParentRight="true">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/editicon"
+                android:background="@color/transparent"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <!-- 4th row -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/url_bar"
+        android:layout_marginTop="10dp"
+        android:id="@+id/time_stop_bar"
+        android:background="#64ffe853">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/clock_icon_holder_4th_row"
+            android:background="@color/transparent">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/clock"
+                android:background="@color/transparent"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/clock_icon_holder_4th_row"
+            android:padding="10dp"
+            android:textSize="15sp"
+            android:switchTextAppearance="@style/SwitchTextAppearance"
+            android:text="9 : 00 am"/>
+
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:id="@+id/edit_button_holder_4th_row"
+            android:layout_alignParentRight="true">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/editicon"
+                android:background="@color/transparent"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_toLeftOf="@id/edit_button_holder_4th_row">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="8 hours"
+                android:padding="5dp"
+                android:id="@+id/time_text_4th_row"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="S M T W T F S"
+                android:layout_below="@id/time_text_4th_row"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>
+
