@@ -112,7 +112,7 @@ public class ListFragment extends Fragment {
             try {
 
                 // Construct the URL for the xml query
-                URL url = new URL("http://192.168.33.56:8080/");
+                URL url = new URL("http://192.168.33.59:8080/");
 
 
                 // Create the request to 192.168.33.56:8080, and open the connection
